@@ -1,5 +1,4 @@
-# GitHub CI build pipeline
-name: Pycomposefile Publish
+name: Publish
 
 on:
   push:
@@ -10,12 +9,12 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
-      - name: Set up Python 3.10
-        uses: actions/setup-python@v2
+      - name: Set up Python 3.13
+        uses: actions/setup-python@v5
         with:
-          python-version: "3.10"
+          python-version: "3.13"
 
       - name: Install pypa/build
         run: |
@@ -24,7 +23,7 @@ jobs:
       - name: Build a binary wheel and a source tarball
         run: |
           sed -i 's/^version = ".*"$/version = "'${GITHUB_REF_NAME#v}'"/' pyproject.toml
-          python -m build --sdist --wheel --outdir dist/ .
+          python -m build
 
       - name: Publish distribution 📦 to Test PyPI
         uses: pypa/gh-action-pypi-publish@release/v1
