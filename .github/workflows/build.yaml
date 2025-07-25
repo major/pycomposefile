@@ -34,7 +34,7 @@ jobs:
 
       - name: Lint
         run: |
-          python -m flake8 -v .
+          python -m ruff check
 
       - name: Run Unit Tests and generate coverage report
         run: |
