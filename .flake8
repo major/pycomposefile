@@ -9,7 +9,7 @@ ignore =
     C901,
     W504
 per-file-ignores =
-    src/azure-cli/azure/cli/__main__.py:E402
+    azure-cli/azure/cli/__main__.py:E402
 exclude =
     azure_bdist_wheel.py
     build
