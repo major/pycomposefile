@@ -6,7 +6,7 @@ readme = "README.md"
 authors = [
     { name = "Steven Murawski", email = "steven.murawski@microsoft.com" },
 ]
-requires-python = ">=3.6"
+requires-python = ">=3.9"
 dependencies = ["pyyaml"]
 keywords = ["docker", "compose"]
 license = "MIT"
@@ -25,7 +25,7 @@ include = ["sample/", "tests/"]
 line-length = 120
 
 [tool.ruff.lint]
-select = ["C9", "E", "F", "W"]
+select = ["C9", "E", "F", "UP", "W"]
 ignore = ["C901", "E501", "E722", "F401", "F811"]
 mccabe = { max-complexity = 10 }
 
